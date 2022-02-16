@@ -14,7 +14,7 @@ export default function ModalMovie( cardInfo, show, handelClick ) {
                 </Modal.Header>
                 <Modal.Body className="body">
                     <h3>{cardInfo.title}</h3>
-                    <img src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${cardInfo.poster_path}` }/>
+                    <img  width='100%' src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${cardInfo.poster_path}` }/>
                     
                     <div>
                         <label htmlFor="op">Write  Comment :</label>
