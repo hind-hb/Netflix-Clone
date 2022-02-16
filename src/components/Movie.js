@@ -17,14 +17,18 @@ function Movie(props) {
                         {props.data.overview}
                     </Card.Text>
                     <Card.Text>
-                         <img width='100%' src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.data.poster_path}` }/>
+                       <img width='100%' src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.data.poster_path}` }/>
                     </Card.Text>
-                    <Button variant="primary" onClick={() => { setmov(props.data); setShowModal(true) }} >Add to Favorite </Button>
+                   
+                    <Button variant="primary" onClick={() => { setmov(props.data); setShowModal(true) }} >Add to Favourite </Button>
                 </Card.Body>
             </Card>
             
-            {showModal && <ModalMovie show={showModal} Movie={Movie} handleColse={() => { setShowModal(false) }}/>}
+            
+            {showModal && <ModalMovie show={showModal} Movie={mov} handleColse={() => { setShowModal(false) }}/>}
         </>
     )
 }
 export default Movie
+
+

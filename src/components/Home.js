@@ -3,12 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
+
 function Home() {
     const [data, setdata] = useState();
 
     const fetchData = async () => {
         try {
-            const respons= await fetch(`https://movies-d.herokuapp.com/trending`)
+            const respons= await fetch(`${process.env.REACT_APP_SERVER}/trending`)
             
 
             const rRender = await respons.json();
@@ -30,6 +31,7 @@ function Home() {
             <p>Home</p>
 
             <MovieList mData={data}/>
+            
         </>
     )
 }
