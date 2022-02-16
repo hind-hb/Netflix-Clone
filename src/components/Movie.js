@@ -17,7 +17,7 @@ function Movie(props) {
                         {props.data.overview}
                     </Card.Text>
                     <Card.Text>
-                       <img src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.data.poster_path}` }/>
+                         <img width='100%' src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.data.poster_path}` }/>
                     </Card.Text>
                     <Button variant="primary" onClick={() => { setmov(props.data); setShowModal(true) }} >Add to Favorite </Button>
                 </Card.Body>
