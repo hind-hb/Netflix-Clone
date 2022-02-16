@@ -1,37 +1,30 @@
-import { Card, CardGroup, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { useState } from 'react';
-import MovieList from './MovieList';
-import ModalMovie from './ModalMovie'
-
+import ModalMovie from './ModalMovie';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Movie(props) {
     const [showModal, setShowModal] = useState(false);
-    const [meme, setMeme] = useState();
+    const [mov, setmov] = useState();
+    
     return (
         <>
-            <CardGroup style={{ display: "flex", justifyContent: "space-around" }}>
-                {
-                    props.Movie.map(meme => {
-                        return <div key={meme.id}>
-                            <Card key={meme.id} >
-                                <Card.Img variant="top" src={meme.poster_path} />
-                                <Card.Body>
-                                    <Card.Title>{meme.title}</Card.Title>
-                                    <Card.Text>
-                                        {meme.overview ? meme.overview : "No text"}
-                                    </Card.Text>
-                                    <Button variant="primary" onClick={() => { setMeme(meme); setShowModal(true) }} >Add to FavList</Button>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    })
-                }
-            </CardGroup>
-            {showModal && <MovieList show={showModal} meme={meme} handleColse={() => { setShowModal(false) }} updateCaption={props.updateCaption} />}
-
-            <ModalMovie />
+            <Card style={{ width: '25rem',margin: '20px 10%'}}>
+                <Card.Header>Movie id : {props.data.id}</Card.Header>
+                <Card.Body>
+                    <Card.Title>{props.data.title}</Card.Title>
+                    <Card.Text>
+                        {props.data.overview}
+                    </Card.Text>
+                    <Card.Text>
+                       <img src= {`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.data.poster_path}` }/>
+                    </Card.Text>
+                    <Button variant="primary" onClick={() => { setmov(props.data); setShowModal(true) }} >Add to Favorite </Button>
+                </Card.Body>
+            </Card>
+            
+            {showModal && <ModalMovie show={showModal} Movie={Movie} handleColse={() => { setShowModal(false) }}/>}
         </>
     )
 }
-
-export default Movie;
+export default Movie
